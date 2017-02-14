@@ -21,6 +21,7 @@
   <INSERT YOUR RESULTS ANALYSIS HERE>
   ======================================*/
 
+import java.util.Arrays;
 public class MergeSortTester 
 {
 
@@ -32,6 +33,45 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
+	int[] arr1=new int[1];
+	for(int x:arr1){
+	    x=(int)(Math.random()*100);
+	}
+	System.out.println(Arrays.toString(arr1));
+	
+	long startTime = System.nanoTime();
+	MergeSort.sort(arr1);
+	long endTime = System.nanoTime();
+	System.out.println(Arrays.toString(arr1));
+	long duration = (endTime - startTime);  
+	System.out.println(duration);
+	
+	int[] arr10=new int[10];
+	for(int x:arr10){
+	    x=(int)(Math.random()*100);
+	}
+	System.out.println(Arrays.toString(arr10));
+	
+	long sTime = System.nanoTime();
+	MergeSort.sort(arr10);
+	long eTime = System.nanoTime();
+	System.out.println(Arrays.toString(arr10));
+	long d = (eTime - sTime);
+	System.out.println(d);
+	
+	int[] arr100=new int[100];
+	for(int x:arr100){
+	    x=(int)(Math.random()*1000);
+	}
+	System.out.println(Arrays.toString(arr100));
+	
+	long s = System.nanoTime();
+	MergeSort.sort(arr100);
+	long e = System.nanoTime();
+	System.out.println(Arrays.toString(arr100));
+	long dur = (e - s);
+	System.out.println(dur);
+
 
     }//end main
 
