@@ -17,7 +17,9 @@
   ...
   n=99999  time: ~30,000,000 nanoseconds
 
-  ANALYSIS:For some reason the execution time for an array of size one was much larger than that of an array of size 10 or 100. This seems off because an array of size 1 is already sorted so it just has to be returned. However, as expected for each other test case the execution time increased with the array size. however it is not exactly nlogn.
+  ANALYSIS:For some reason the execution time for an array of size one was much larger than that of an array of size 10 or 100. 
+  This seems off because an array of size 1 is already sorted so it just has to be returned.
+  However, as expected for each other test case the execution time increased with the array size. however it is not exactly nlogn.
   ======================================*/
 
 import java.util.Arrays;
