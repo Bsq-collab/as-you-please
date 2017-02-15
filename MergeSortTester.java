@@ -11,7 +11,7 @@
 
   Mean execution times for dataset of size n: 
   Batch size: <# of times each dataset size was run>
-  n=1       time: 1
+  n=1       time: ~750000 nanoseconds
   n=10      time: 
   n=100     time: 
   ...
@@ -24,19 +24,24 @@
 import java.util.Arrays;
 public class MergeSortTester 
 {
+    public static int[] pop(int[] arr){
+	for(int i=0; i<arr.length; i++){
+	    arr[i]= (int) (Math.random()*100);
+	}
+	return arr;
+    }
 
     /******************************
      * execution time analysis 
-     * <INSERT YOUR DESCRIPTION HERE OF 
-     *  YOUR APPARATUS FOR GENERATING EXECUTION 
-     *  TIME DATA...>
+     * We defined the start time and then subtracted that from the start time. 
+     * to get the execution time we subtracted the start time from the end time. 
+     *In order to get the time we used the built in nanoTime. 
      ******************************/
     public static void main( String[] args ) 
     {
 	int[] arr1=new int[1];
-	for(int x:arr1){
-	    x=(int)(Math.random()*100);
-	}
+	pop(arr1);
+
 	System.out.println(Arrays.toString(arr1));
 	
 	long startTime = System.nanoTime();
@@ -47,22 +52,19 @@ public class MergeSortTester
 	System.out.println(duration);
 	
 	int[] arr10=new int[10];
-	for(int x:arr10){
-	    x=(int)(Math.random()*100);
-	}
+	pop(arr10);
 	System.out.println(Arrays.toString(arr10));
 	
 	long sTime = System.nanoTime();
 	MergeSort.sort(arr10);
 	long eTime = System.nanoTime();
-	System.out.println(Arrays.toString(arr10));
+	System.out.println(Arrays.toString(MergeSort.sort(arr10)));
 	long d = (eTime - sTime);
 	System.out.println(d);
 	
 	int[] arr100=new int[100];
-	for(int x:arr100){
-	    x=(int)(Math.random()*1000);
-	}
+	pop(arr100);
+	
 	System.out.println(Arrays.toString(arr100));
 	
 	long s = System.nanoTime();
