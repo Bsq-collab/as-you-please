@@ -34,43 +34,43 @@ public class MergeSort {
      ******************************************************/
     
     private static int[] merge( int[] a, int[] b ) {
-	if (a.length==0) {
-	    return b;}
-	if (b.length==0) {
-	    return a;}
-	else {
-	    int counter1=0;
-	    int counter2=0;
-	    int finalCounter=0;
-	    int[] result = new int[a.length+b.length];
-	    while (counter1<a.length && counter2<b.length) {
-		if (a[counter1]<= b[counter2]) {
-		    result[finalCounter]=a[counter1];
-		    finalCounter++;
-		    counter1++;
-		}
-		else {
-		    result[finalCounter] = b[counter2];
-		    finalCounter++;
-		    counter2++;
-		}
+
+	int[] l = new int[a.length + b.length];
+
+	int i = 0, j = 0;
+
+	while ( i + j < l.length) {
+
+	    if ( i == a.length ) {
+
+		l[i+j] = b[j];
+
+		j++;
+
+	    } else if ( j == b.length ) {
+
+		l[i+j] = a[i];
+
+		i++;
+
+	    } else if (a[i] > b[j]){
+
+		l[i+j] = b[j];
+
+		j++;
+
+	    } else {
+
+		l[i+j] = a[i];
+
+		i++;
+
 	    }
-	    if (finalCounter < a.length+b.length && counter1< a.length) {
-		while (finalCounter<a.length+b.length) {
-		    result[finalCounter]=a[counter1];
-		    finalCounter++;
-		    counter1++;
-		}
-	    }
-	    else {
-		while (finalCounter<a.length+b.length) {
-		    result[finalCounter]=b[counter2];
-		    finalCounter++;
-		    counter2++;
-		}
-	    }
-	    return result;
+
 	}
+
+	return l;
+
     }//end merge()
     /******************************************************
      * int[] sort(int[]) 
@@ -78,25 +78,31 @@ public class MergeSort {
      * Returns sorted version of input array (ascending)
      ******************************************************/
     public static int[] sort( int[] arr ) {
-	int[] result = new int[arr.length];
-	if (arr.length<=1) {
-	    result=arr;
-	    return result;
+
+	if (arr.length == 1) {
+	    
+		return arr;
+
 	}
-	else {
-	    int[] first = new int[arr.length / 2];
-	    int[] second = new int[arr.length - first.length];
-	    for (int i=0; i<first.length; i++) {
-		first[i]=arr[i];
-	    }
-	    for (int j=0; j<second.length; j++) {
-		second[j]=arr[first.length+j];
-	    }
-	    first=sort(first);
-	    second=sort(second);
-	    result=merge(first, second);
-	    return result;
+
+	int[] a = new int[arr.length / 2];
+
+	int[] b = new int[arr.length - arr.length / 2];
+
+	for (int i = 0; i < arr.length; i++) {
+
+	    if ( i < arr.length/2 )
+
+		a[i] = arr[i];
+
+	    else
+
+		b[i - arr.length/2] = arr[i];
+
 	}
+
+	return merge(sort(a), sort(b));
+
     }//end sort()
 
     //-------------------HELPERS-------------------------
