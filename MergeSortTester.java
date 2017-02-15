@@ -10,15 +10,14 @@
                O(nlogn)
 
   Mean execution times for dataset of size n: 
-  Batch size: <# of times each dataset size was run>
-  n=1       time: ~750000 nanoseconds
-  n=10      time: 
-  n=100     time: 
+  Batch size: 10
+  n=1       time: ~650000 nanoseconds (n=1 seems off)
+  n=10      time: ~30,000 nanoseconds
+  n=100     time: ~125,000 nanoseconds
   ...
-  n=<huge>  time: 
+  n=99999  time: ~30,000,000 nanoseconds
 
-  ANALYSIS:
-  <INSERT YOUR RESULTS ANALYSIS HERE>
+  ANALYSIS:For some reason the execution time for an array of size one was much larger than that of an array of size 10 or 100. This seems off because an array of size 1 is already sorted so it just has to be returned. However, as expected for each other test case the execution time increased with the array size. however it is not exactly nlogn.
   ======================================*/
 
 import java.util.Arrays;
@@ -49,6 +48,7 @@ public class MergeSortTester
 	long endTime = System.nanoTime();
 	System.out.println(Arrays.toString(arr1));
 	long duration = (endTime - startTime);  
+	System.out.println("duration for n=1");
 	System.out.println(duration);
 	
 	int[] arr10=new int[10];
@@ -60,6 +60,7 @@ public class MergeSortTester
 	long eTime = System.nanoTime();
 	System.out.println(Arrays.toString(MergeSort.sort(arr10)));
 	long d = (eTime - sTime);
+	System.out.println("duration for n=10");
 	System.out.println(d);
 	
 	int[] arr100=new int[100];
@@ -70,9 +71,23 @@ public class MergeSortTester
 	long s = System.nanoTime();
 	MergeSort.sort(arr100);
 	long e = System.nanoTime();
-	System.out.println(Arrays.toString(arr100));
+	System.out.println(Arrays.toString(MergeSort.sort(arr100)));
 	long dur = (e - s);
+	System.out.println("duration for n=100");
 	System.out.println(dur);
+
+	int[] big=new int[99999];
+	pop(big);
+	//	System.out.println(Arrays.toString(big));
+	
+	long sBig = System.nanoTime();
+	MergeSort.sort(big);
+	long eBig = System.nanoTime();
+	//	System.out.println(Arrays.toString(MergeSort.sort(big)));
+	long durBig = (eBig - sBig);
+	System.out.println("duration for n=99999");
+	System.out.println(durBig);
+	
 
 
     }//end main
