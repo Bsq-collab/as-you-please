@@ -34,43 +34,24 @@ public class MergeSort {
      ******************************************************/
     
     private static int[] merge( int[] a, int[] b ) {
-
 	int[] l = new int[a.length + b.length];
-
 	int i = 0, j = 0;
-
 	while ( i + j < l.length) {
-
 	    if ( i == a.length ) {
-
 		l[i+j] = b[j];
-
 		j++;
-
 	    } else if ( j == b.length ) {
-
 		l[i+j] = a[i];
-
 		i++;
-
 	    } else if (a[i] > b[j]){
-
 		l[i+j] = b[j];
-
 		j++;
-
 	    } else {
-
 		l[i+j] = a[i];
-
 		i++;
-
 	    }
-
 	}
-
 	return l;
-
     }//end merge()
     /******************************************************
      * int[] sort(int[]) 
@@ -78,31 +59,18 @@ public class MergeSort {
      * Returns sorted version of input array (ascending)
      ******************************************************/
     public static int[] sort( int[] arr ) {
-
-	if (arr.length == 1) {
-	    
+	if (arr.length == 1) { 
 		return arr;
-
 	}
-
 	int[] a = new int[arr.length / 2];
-
 	int[] b = new int[arr.length - arr.length / 2];
-
 	for (int i = 0; i < arr.length; i++) {
-
 	    if ( i < arr.length/2 )
-
 		a[i] = arr[i];
-
 	    else
-
 		b[i - arr.length/2] = arr[i];
-
 	}
-
 	return merge(sort(a), sort(b));
-
     }//end sort()
 
     //-------------------HELPERS-------------------------
