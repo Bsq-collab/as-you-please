@@ -11,3 +11,5 @@ To make up for our weird results for length=1, we did length=50 and the runtime 
 We aren't sure why the length=1 runtime is much longer than the other runtimes for larger lengths. Our code has a conditional
 statement specifically for length=1, which just returns the array itself. We expected a short runtime because this process would
 only be one key operation.
+
+Even though our runtime is not exactly nlogn, it somewhat resembles an nlogn curve with the base of the logarithm being about 1.02.
