@@ -11,11 +11,14 @@
 
   Mean execution times for dataset of size n: 
   Batch size: 10
-  n=1       time: ~650000 nanoseconds (n=1 seems off)
-  n=10      time: ~30,000 nanoseconds
-  n=100     time: ~125,000 nanoseconds
-  ...
-  n=99999  time: ~30,000,000 nanoseconds
+  n=1       time: ~354 nanoseconds
+  n=10      time: ~30,676 nanoseconds
+  n=100     time: ~102,611 nanoseconds
+  n=1000    time: ~530,674 nanoseconds
+  n=10000   time: ~3,097,320 nanoseconds
+  n=100000  time: ~34,265,158 nanoseconds
+  n=1000000 time: ~238,633,637 nanoseconds
+  n=10000000time: ~
 
   ANALYSIS:For some reason the execution time for an array of size one was much larger than that of an array of size 10 or 100. 
   This seems off because an array of size 1 is already sorted so it just has to be returned.
@@ -31,6 +34,34 @@ public class MergeSortTester
 	}
 	return arr;
     }
+    public static long[] getVals(int[] arrpop){
+	long[] data= new long[1000];
+	int ctr= 1;
+	while(ctr<=1000){
+	    long startTime=System.nanoTime();
+	    MergeSort.sort(pop(arrpop));
+	    long endTime=System.nanoTime();
+	    long duration= (endTime-startTime);
+	    data[ctr-1]=duration;
+	    ctr+=1;
+	}
+	return data;
+    }
+    public static double getSum(long[] dataSet){
+	double sum=0;
+	int ctr=0;
+	while (ctr<1000){
+	    sum+= dataSet[ctr];
+	    ctr+=1;
+	}
+	return sum;
+    }
+    public static double getAvg(double sum){
+	return sum/1000;
+    }
+	
+	
+    
 
     /******************************
      * execution time analysis 
@@ -40,27 +71,144 @@ public class MergeSortTester
      ******************************/
     public static void main( String[] args ) 
     {
-	int[] arr1=new int[1];
-	pop(arr1);
 
-	System.out.println(Arrays.toString(arr1));
+	int[] arr1=new int[1];
+	System.out.println("average for n=1)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
+	System.out.println("average for n=1)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
+		System.out.println("average for n=1)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
+		System.out.println("average for n=1)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
+		System.out.println("average for n=1)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
+        
+
+	int[] arr10=new int[10];
+	System.out.println("average for n=10)");	
+	System.out.println(getAvg(getSum(getVals(pop(arr10)))));
+	System.out.println("average for n=10)");	
+	System.out.println(getAvg(getSum(getVals(pop(arr10)))));
+	System.out.println("average for n=10)");	
+	System.out.println(getAvg(getSum(getVals(pop(arr10)))));
+	System.out.println("average for n=10)");	
+	System.out.println(getAvg(getSum(getVals(pop(arr10)))));
+	System.out.println("average for n=10)");	
+	System.out.println(getAvg(getSum(getVals(pop(arr10)))));
+	System.out.println("average for n=10)");	
+	System.out.println(getAvg(getSum(getVals(pop(arr10)))));
+	System.out.println("average for n=10)");	
+	System.out.println(getAvg(getSum(getVals(pop(arr10)))));
+
+
+	int[] arr100=new int[100];
+	System.out.println("average for n=100)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100)))));
+	System.out.println("average for n=100)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100)))));
+	System.out.println("average for n=100)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100)))));
+	System.out.println("average for n=100)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100)))));
+	System.out.println("average for n=100)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100)))));
+
+
+
+	int[] arr1000=new int[1000];
+	System.out.println("average for n=1,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000)))));
+
+	System.out.println("average for n=1,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000)))));
+
+	System.out.println("average for n=1,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000)))));
+
+	System.out.println("average for n=1,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000)))));
+
+	System.out.println("average for n=1,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000)))));
+
+	System.out.println("average for n=1,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000)))));
+	
+	System.out.println("average for n=1,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000)))));
+	
+	int[] arr10000=new int[10000];
+	System.out.println("average for n=10,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr10000)))));
+
+	
+	System.out.println("average for n=10,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr10000)))));
+	
+	System.out.println("average for n=10,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr10000)))));
+	
+	System.out.println("average for n=10,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr10000)))));
+	
+	System.out.println("average for n=10,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr10000)))));
+	
+	int[] arr100000=new int[100000];
+	System.out.println("average for n=100,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100000)))));
+	
+	System.out.println("average for n=100,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100000)))));
+	
+	System.out.println("average for n=100,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100000)))));
+	
+	System.out.println("average for n=100,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100000)))));
+	
+	System.out.println("average for n=100,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr100000)))));
+	
+	int[] arr1000000=new int[1000000];
+	System.out.println("average for n=1,000,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000000)))));
+        
+	System.out.println("average for n=1,000,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000000)))));
+        
+	System.out.println("average for n=1,000,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000000)))));
+        
+	System.out.println("average for n=1,000,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000000)))));
+        
+	System.out.println("average for n=1,000,000)");
+	System.out.println(getAvg(getSum(getVals(pop(arr1000000)))));
+        
+	
+
+	/*
+	//	System.out.println(Arrays.toString(arr1));
 	
 	long startTime = System.nanoTime();
 	MergeSort.sort(arr1);
 	long endTime = System.nanoTime();
-	System.out.println(Arrays.toString(arr1));
+	MergeSort.sort(arr1);
+	//System.out.println(Arrays.toString(arr1));
 	long duration = (endTime - startTime);  
 	System.out.println("duration for n=1");
 	System.out.println(duration);
 	
 	int[] arr10=new int[10];
 	pop(arr10);
-	System.out.println(Arrays.toString(arr10));
+	//System.out.println(Arrays.toString(arr10));
 	
 	long sTime = System.nanoTime();
 	MergeSort.sort(arr10);
 	long eTime = System.nanoTime();
-	System.out.println(Arrays.toString(MergeSort.sort(arr10)));
+	MergeSort.sort(arr10);
 	long d = (eTime - sTime);
 	System.out.println("duration for n=10");
 	System.out.println(d);
@@ -68,17 +216,18 @@ public class MergeSortTester
 	int[] arr100=new int[100];
 	pop(arr100);
 	
-	System.out.println(Arrays.toString(arr100));
+	//System.out.println(Arrays.toString(arr100));
 	
 	long s = System.nanoTime();
 	MergeSort.sort(arr100);
 	long e = System.nanoTime();
-	System.out.println(Arrays.toString(MergeSort.sort(arr100)));
+	MergeSort.sort(arr100);
 	long dur = (e - s);
 	System.out.println("duration for n=100");
 	System.out.println(dur);
 
-	int[] big=new int[99999];
+
+	int[] big=new int[10000000];
 	pop(big);
 	//	System.out.println(Arrays.toString(big));
 	
@@ -87,9 +236,9 @@ public class MergeSortTester
 	long eBig = System.nanoTime();
 	//	System.out.println(Arrays.toString(MergeSort.sort(big)));
 	long durBig = (eBig - sBig);
-	System.out.println("duration for n=99999");
+	System.out.println("duration for n=10,000,000");
 	System.out.println(durBig);
-	
+	*/
 
 
     }//end main
