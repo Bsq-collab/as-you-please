@@ -31,6 +31,7 @@ Originally, all our calculations were done in the main method by declaring a sta
 We also found the average of each array size multiple times so that we can make a scattergraph. 
 
 ### Graph
+[Here's the link to our graph](https://docs.google.com/a/stuy.edu/spreadsheets/d/1Ltdix5ZXwAdLS-2odC4Am9WsXx2Vcx3IYMsQ8Kl-CoA/edit?usp=sharing)
 
 ##### Conclusion
 Even though our runtime is not exactly nlogn, it somewhat resembles an nlogn curve with the base of the logarithm being about 1.02.
