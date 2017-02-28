@@ -10,19 +10,17 @@
                O(nlogn)
 
   Mean execution times for dataset of size n: 
-  Batch size: 10
-  n=1       time: ~354 nanoseconds
-  n=10      time: ~30,676 nanoseconds
-  n=100     time: ~102,611 nanoseconds
-  n=1000    time: ~530,674 nanoseconds
-  n=10000   time: ~3,097,320 nanoseconds
-  n=100000  time: ~34,265,158 nanoseconds
-  n=1000000 time: ~238,633,637 nanoseconds
-  n=10000000time: ~
-
-  ANALYSIS:For some reason the execution time for an array of size one was much larger than that of an array of size 10 or 100. 
-  This seems off because an array of size 1 is already sorted so it just has to be returned.
-  However, as expected for each other test case the execution time increased with the array size. however it is not exactly nlogn.
+  Batch size: 1000
+  n=1       time: ~107 nanoseconds
+  n=10      time: ~1796 nanoseconds
+  n=100     time: ~14,800 nanoseconds
+  n=1000    time: ~138,477 nanoseconds
+  n=10000   time: ~1,439,076 nanoseconds
+  n=100000  time: ~16,682,320 nanoseconds
+  n=1000000 time: ~176,653,200 nanoseconds
+  
+  ANALYSIS:
+  Even though our runtime is not exactly nlogn, it somewhat resembles an nlogn curve with the base of the logarithm being about 1.02.
   ======================================*/
 
 import java.util.Arrays;
@@ -77,11 +75,11 @@ public class MergeSortTester
 	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
 	System.out.println("average for n=1)");
 	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
-		System.out.println("average for n=1)");
+	System.out.println("average for n=1)");
 	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
-		System.out.println("average for n=1)");
+	System.out.println("average for n=1)");
 	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
-		System.out.println("average for n=1)");
+	System.out.println("average for n=1)");
 	System.out.println(getAvg(getSum(getVals(pop(arr1)))));
         
 
